@@ -6,21 +6,28 @@
 
 System został zbudowany z naciskiem na user experience (UX) oraz bezpieczeństwo danych.
 
+### 🎥 Zaawansowana Obsługa Plików i Mediów
+Aplikacja to nie tylko tekst. To pełnoprawna platforma do udostępniania treści multimedialnych:
+*   **Wbudowany Przeglądarka PDF**: Pliki PDF są wyświetlane bezpośrednio w oknie przeglądarki, bez konieczności ich pobierania.
+*   **Odtwarzacze Wideo i Audio**: Natywne wsparcie dla streamowania plików wideo (MP4, WebM) oraz audio (MP3, WAV) prosto z wklejki.
+*   **Podgląd Obrazów**: Automatyczne wyświetlanie przesłanych grafik i zrzutów ekranu w wysokiej jakości.
+*   **Hosting Plików**: Możliwość załączania dowolnych archiwów (ZIP, RAR) i dokumentów do pobrania.
+
 ### 🛡️ Bezpieczeństwo i Prywatność
 *   **Burn After Reading (Spal po przeczytaniu)**: Unikalna funkcja pozwalająca na tworzenie jednorazowych linków. Po pierwszym otwarciu wklejka jest **trwale usuwana** z bazy danych (rekordy) oraz dysku serwera (załączniki). Idealne do przesyłania haseł i kluczy API.
 *   **Szyfrowanie Wklejek**: Każda wklejka może zostać zabezpieczona indywidualnym hasłem. Treść jest dostępna tylko dla osób znających hasło.
-*   **Site-Lock**: Możliwość założenia hasła na całą instancję serwisu (Private Mode), aby dostęp mieli tylko autoryzowani członkowie zespołu.
+*   **Site-Lock**: Możliwość założenia hasła na całą instancję serwisu (Private Mode), aby dostęp mieli tylko autoryzowani członkowie zespołu.  
 
 ### 💻 Nowoczesny Interfejs
 *   **Motyw Ayu Dark**: Starannie dobrana paleta kolorów zmniejszająca zmęczenie oczu, inspirowana popularnym motywem edytorów kodu.
 *   **Responsywność (RWD)**: Interfejs w pełni dostosowany do urządzeń mobilnych, tabletów i desktopów.
-*   **Drag & Drop**: Intuicyjny system przesyłania plików – wystarczy przeciągnąć plik na obszar edytora.
+*   **Drag & Drop**: Intuicyjny system przesyłania plików – wystarczy przeciągnąć plik PDF, obrazek czy tekst na obszar edytora.
 
 ### ⚙️ Funkcje Edytora i Przeglądania
 *   **Podświetlanie Składni**: Automatyczne wykrywanie i kolorowanie składni dla dziesiątek języków programowania.
-*   **Niestandardowe Linki (Slugi)**: Użytkownik może zdefiniować własną końcówkę URLa (np. `twoja-domena.pl/projekt-x`), zamiast losowego ciągu znaków.
-*   **Surowy Podgląd (Raw Mode)**: Dostęp do czystego tekstu bez stylów CSS, idealny do pobierania skryptów bezpośrednio przez `curl` czy `wget`.
-*   **Wersjonowanie Czasowe**: Ustawianie czasu wygasania wklejek (od 10 minut do wieczności), po którym są one automatycznie usuwane przez system garbage collector.
+*   **Niestandardowe Linki (Slugi)**: Użytkownik może zdefiniować własną końcówkę URLa (np. `twoja-domena.pl/prezentacja-v1`), zamiast losowego ciągu znaków.
+*   **Surowy Podgląd (Raw Mode)**: Dostęp do czystego tekstu bez stylów CSS.
+*   **Wersjonowanie Czasowe**: Ustawianie czasu wygasania wklejek (od 10 minut do wieczności).
 
 ---
 
