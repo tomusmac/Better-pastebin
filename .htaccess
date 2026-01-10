@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+# Allow access to existing files/dirs (like assets, index.php, raw.php)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite /raw/something to raw.php?id=something
+RewriteRule ^raw/([a-zA-Z0-9_-]+)$ raw.php?id=$1 [L,QSA]
+
+# Rewrite /something to index.php?id=something
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?id=$1 [L,QSA]
