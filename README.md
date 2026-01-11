@@ -1,130 +1,184 @@
-# 🚀 Paste System - Profesjonalna Platforma do Udostępniania Kodu
+# Paste System
 
-**Paste System** to zaawansowane, lekkie i bezpieczne rozwiązanie typu "Pastebin", zaprojektowane z myślą o programistach i administratorach systemów. Aplikacja łączy w sobie nowoczesny design (Ayu Dark) z potężnym backendem napisanym w czystym PHP, oferując szybkość działania bez narzutu ciężkich frameworków.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4.svg)
+![Database](https://img.shields.io/badge/MySQL-MariaDB-orange.svg)
 
-## ✨ Kluczowe Funkcjonalności
+**Paste System** to nowoczesna, wydajna i bezpieczna aplikacja typu Pastebin, zaprojektowana do łatwego udostępniania kodu, plików konfiguracyjnych oraz multimediów. Projekt kładzie nacisk na **prostotę wdrożenia**, **wydajność** (brak ciężkich frameworków) oraz **estetykę** (User Experience).
 
-System został zbudowany z naciskiem na user experience (UX) oraz bezpieczeństwo danych.
-
-### 🎥 Zaawansowana Obsługa Plików i Mediów
-Aplikacja to nie tylko tekst. To pełnoprawna platforma do udostępniania treści multimedialnych:
-*   **Wbudowany Przeglądarka PDF**: Pliki PDF są wyświetlane bezpośrednio w oknie przeglądarki, bez konieczności ich pobierania.
-*   **Odtwarzacze Wideo i Audio**: Natywne wsparcie dla streamowania plików wideo (MP4, WebM) oraz audio (MP3, WAV) prosto z wklejki.
-*   **Podgląd Obrazów**: Automatyczne wyświetlanie przesłanych grafik i zrzutów ekranu w wysokiej jakości.
-*   **Hosting Plików**: Możliwość załączania dowolnych archiwów (ZIP, RAR) i dokumentów do pobrania.
-
-### 🛡️ Bezpieczeństwo i Prywatność
-*   **Burn After Reading (Spal po przeczytaniu)**: Unikalna funkcja pozwalająca na tworzenie jednorazowych linków. Po pierwszym otwarciu wklejka jest **trwale usuwana** z bazy danych (rekordy) oraz dysku serwera (załączniki). Idealne do przesyłania haseł i kluczy API.
-*   **Szyfrowanie Wklejek**: Każda wklejka może zostać zabezpieczona indywidualnym hasłem. Treść jest dostępna tylko dla osób znających hasło.
-*   **Site-Lock**: Możliwość założenia hasła na całą instancję serwisu (Private Mode), aby dostęp mieli tylko autoryzowani członkowie zespołu.  
-
-### 💻 Nowoczesny Interfejs
-*   **Motyw Ayu Dark**: Starannie dobrana paleta kolorów zmniejszająca zmęczenie oczu, inspirowana popularnym motywem edytorów kodu.
-*   **Responsywność (RWD)**: Interfejs w pełni dostosowany do urządzeń mobilnych, tabletów i desktopów.
-*   **Drag & Drop**: Intuicyjny system przesyłania plików – wystarczy przeciągnąć plik PDF, obrazek czy tekst na obszar edytora.
-
-### ⚙️ Funkcje Edytora i Przeglądania
-*   **Podświetlanie Składni**: Automatyczne wykrywanie i kolorowanie składni dla dziesiątek języków programowania.
-*   **Niestandardowe Linki (Slugi)**: Użytkownik może zdefiniować własną końcówkę URLa (np. `twoja-domena.pl/prezentacja-v1`), zamiast losowego ciągu znaków.
-*   **Surowy Podgląd (Raw Mode)**: Dostęp do czystego tekstu bez stylów CSS.
-*   **Wersjonowanie Czasowe**: Ustawianie czasu wygasania wklejek (od 10 minut do wieczności).
+Aplikacja oferuje bogaty zestaw funkcji, w tym obsługę plików tekstowych i binarnych, kolorowanie składni, mechanizmy samozniszczenia wiadomości (Burn After Reading) oraz zaawansowany panel administracyjny.
 
 ---
 
-## 🔧 Panel Administratora
+## 📋 Spis Treści
 
-Platforma wyposażona jest w rozbudowany panel zarządzania (`/admin.php`), który daje pełną kontrolę nad instancją:
-
-1.  **Dashboard Statystyk**:
-    *   Monitorowanie całkowitej liczby wklejek w systemie.
-    *   Podgląd całkowitego rozmiaru bazy danych i plików na dysku.
-    *   Analiza popularności serwisu (licznik wyświetleń).
-
-2.  **Zarządzanie Treścią (CRUD)**:
-    *   Przegląd wszystkich aktywnych wklejek w formie tabelarycznej.
-    *   Sortowanie danych po dacie utworzenia, rozmiarze, tytule czy dacie wygaśnięcia.
-    *   **Moderacja**: Możliwość natychmiastowego usunięcia dowolnej wklejki, która narusza regulamin lub jest niepożądana. Usunięcie jest definitywne (rekord DB + plik).
-
-3.  **Bezpieczeństwo Panelu**:
-    *   Panel chroniony jest niezależnym hasłem administracyjnym, oddzielonym od hasła dostępu do samej strony("Site Password").
+- [Funkcjonalności](#-funkcjonalności)
+- [Galeria](#-galeria)
+- [Wymagania Systemowe](#-wymagania-systemowe)
+- [Instalacja](#-instalacja)
+- [Konfiguracja](#-konfiguracja)
+- [Dokumentacja API](#-dokumentacja-api)
+- [Panel Administratora](#-panel-administratora)
+- [Licencja](#-licencja)
 
 ---
 
-## 🛠️ Wymagania Techniczne
+## ✨ Funkcjonalności
 
-Aplikacja jest wysoce kompatybilna i działa na większości standardowych hostingów współdzielonych oraz VPS.
+### Zarządzanie Treścią
+*   **Wsparcie Multimediów**: Natywny podgląd dla plików PDF, wideo (MP4, WebM), audio (MP3) oraz obrazów bezpośrednio w przeglądarce.
+*   **Edytor Kodu**: Kolorowanie składni (Syntax Highlighting) dla szerokiej gamy języków programowania.
+*   **Drag & Drop**: Intuicyjny interfejs umożliwiający przeciąganie plików bezpośrednio do obszaru roboczego.
 
-*   **PHP**: Wersja 7.4 lub nowsza.
-*   **Baza danych**: MySQL lub MariaDB.
-*   **Serwer**: Apache (z `mod_rewrite`) lub Nginx.
+### Bezpieczeństwo i Prywatność
+*   **Burn After Reading**: Opcja tworzenia jednorazowych linków. Dane są trwale usuwane z serwera natychmiast po pierwszym odczycie.
+*   **Hasła do Wklejek**: Możliwość zabezpieczenia poszczególnych wpisów indywidualnym hasłem.
+*   **Site Password (Tryb Prywatny)**: Globalna blokada dostępu do serwisu, idealna dla wdrożeń wewnątrzfirmowych.
+
+### Personalizacja
+*   **Motyw Ayu Dark**: Nowoczesny, ciemny interfejs inspirowany popularnymi motywami IDE, zapewniający komfort pracy.
+*   **Custom Slugs**: Możliwość definiowania własnych, czytelnych adresów URL (np. `/projekt-dokumentacja`).
+*   **Wygasanie Treści**: Konfigurowalny czas życia wklejki (od 10 minut do bezterminowo).
+
+---
+
+## 📸 Galeria
+
+Poniżej znajdują się zrzuty ekranu prezentujące kluczowe elementy interfejsu aplikacji.
+
+### 1. Interfejs Główny
+> *Widok edytora oraz panelu opcji udostępniania.*
+![Dashboard](screenshots/main_page.png)
+
+### 2. Widok Wklejki
+> *Prezentacja udostępnionego kodu z aktywnym kolorowaniem składni.*
+![Paste View](screenshots/paste_view.png)
+
+### 3. Kod QR
+> *Moduł generowania kodów QR dla szybkiego dostępu mobilnego.*
+![QR Code](screenshots/qr_view.png)
+
+### 4. Podgląd Plików
+> *Przykład integracji podglądu multimediów (PDF/Obraz).*
+![Media Preview](screenshots/file_view.png)
+
+### 5. Ekran Logowania (Site Protection)
+> *Formularz autoryzacji przy włączonym trybie `require_auth`.*
+![Login Screen](screenshots/login_screen.png)
+
+### 6. Panel Administratora
+> *Centrum zarządzania systemem i wklejkami.*
+![Admin Panel](screenshots/admin_panel.png)
+
+---
+
+## 💻 Wymagania Systemowe
+
+Aplikacja jest zoptymalizowana do działania na standardowych środowiskach hostingowych.
+
+*   **Serwer WWW**: Apache (z obsługą `mod_rewrite`) lub Nginx.
+*   **Interpreter PHP**: Wersja 7.4 lub nowsza.
+*   **Baza Danych**: MySQL 5.7+ lub MariaDB.
 *   **Rozszerzenia PHP**: `pdo`, `pdo_mysql`.
 
 ---
 
-## 📦 Instalacja Krok po Kroku
+## 🚀 Instalacja
 
-### 1. Pobranie plików
-Sklonuj repozytorium do katalogu publicznego swojego serwera WWW:
+### Krok 1: Pobranie Repozytorium
+Sklonuj kod źródłowy do katalogu publicznego serwera WWW:
+
 ```bash
 git clone https://github.com/twoj-user/paste.git
 cd paste
 ```
 
-### 2. Przygotowanie Bazy Danych
-Utwórz nową bazę danych i zaimportuj strukturę tabel. Możesz to zrobić przez phpMyAdmin lub wiersz poleceń:
+### Krok 2: Konfiguracja Bazy Danych
+Utwórz nową bazę danych i zaimportuj strukturę tabel z pliku `sql/schema.sql`:
+
 ```bash
-mysql -u uzytkownik -p nazwa_bazy < sql/schema.sql
+mysql -u nazwa_uzytkownika -p nazwa_bazy < sql/schema.sql
 ```
 
-### 3. Konfiguracja Aplikacji
-Skopiuj lub edytuj plik `app/config.php` i wprowadź swoje dane dostępowe:
+### Krok 3: Uprawnienia Plików
+Nadaj uprawnienia do zapisu dla katalogu `uploads`, aby umożliwić przesyłanie plików:
 
-```php
-$config = [
-    'db_host' => 'localhost',
-    'db_name' => 'twoja_baza_danych',
-    'db_user' => 'uzytkownik_db',
-    'db_pass' => 'silne_haslo_db',
-    
-    'require_auth' => false,       // Czy wymagać hasła do wejścia na stronę?
-    'site_password' => 'view',     // Hasło globalne (jeśli require_auth = true)
-    'admin_password' => 'adminAC', // Hasło do /admin.php (ZMIEŃ TO!)
-    'language' => 'pl'             // Domyślny język (pl/en)
-];
-```
-
-### 4. Uprawnienia Katalogów
-Aplikacja musi mieć możliwość zapisu w katalogu `uploads`:
 ```bash
 chmod 755 uploads
 ```
 
 ---
 
-## 🔌 API REST
+## ⚙️ Konfiguracja
 
-System udostępnia proste API dla programistów, pozwalające na automatyzację tworzenia wklejek.
+Podstawowa konfiguracja znajduje się w pliku `app/config.php`. Dostosuj parametry do swojego środowiska:
+
+```php
+<?php
+$config = [
+    // Połączenie z Bazą Danych
+    'db_host' => 'localhost',
+    'db_name' => 'nazwa_bazy',
+    'db_user' => 'uzytkownik_db',
+    'db_pass' => 'haslo_db',
+    
+    // Ustawienia Bezpieczeństwa
+    'require_auth' => false,       // Wymuszaj logowanie przed dostępem do strony
+    'site_password' => 'secret',   // Hasło globalne (dla require_auth)
+    'admin_password' => 'adminAC', // Hasło do Panelu Administratora (ZALECANA ZMIANA)
+    
+    // Inne
+    'language' => 'pl'             // Język interfejsu (pl/en)
+];
+```
+
+---
+
+## 🔌 Dokumentacja API
+
+System udostępnia interfejs REST API, umożliwiający integrację z zewnętrznymi narzędziami oraz automatyzację procesów.
 
 **Endpoint**: `POST /api.php`
 
-| Parametr | Typ | Wymagany | Opis |
-| :--- | :--- | :--- | :--- |
-| `text` | string | TAK | Treść wklejki. |
-| `title` | string | NIE | Tytuł wklejki. |
-| `extension` | string | NIE | Rozszerzenie składni (np. `json`, `py`, `sql`). |
-| `password` | string | NIE | Hasło zabezpieczające wklejkę. |
-| `burn` | bool | NIE | Wartość `1` aktywuje tryb "Burn after reading". |
-| `expires` | int | NIE | Czas wygasania w minutach (0 = nigdy). |
+### Parametry Żądania
 
-### Przykład użycia (cURL)
+| Parametr | Typ | Wymagalność | Opis |
+| :--- | :--- | :--- | :--- |
+| `text` | string | **Wymagane** | Główna treść wklejki lub pliku. |
+| `title` | string | Opcjonalne | Tytuł wklejki wyświetlany w nagłówku. |
+| `extension` | string | Opcjonalne | Rozszerzenie pliku/język składni (np. `php`, `json`). Domyślnie `txt`. |
+| `password` | string | Opcjonalne | Hasło dostępowe do konkretnej wklejki. |
+| `site_password`| string | Warunkowe* | Hasło globalne serwisu (wymagane, jeśli w `config.php` ustawiono `require_auth`). |
+| `burn` | boolean| Opcjonalne | Flaga `1` lub `true`. Aktywuje tryb jednorazowego odczytu. |
+| `expires` | integer| Opcjonalne | Czas wygasania w minutach (0 = bezterminowo). |
+
+### Przykłady Użycia
+
+#### Przesyłanie pliku logów (cURL)
 
 ```bash
-# Szybkie wysłanie pliku logów
-cat error.log | curl -F "text=<-" -F "title=Logi serwera" http://twoja-domena.pl/api.php
+cat server.log | curl -F "text=<-" -F "title=Server Logs" -F "syntax=log" http://twoja-domena.pl/api.php
 ```
+
+#### Przesyłanie z hasłem i autodestrukcją
+
+```bash
+curl -d "text=TajneH" -d site_password="view" -d "burn=1" -d "password=szyfr" http://twoja-domena.pl/api.php
+```
+
+---
+
+## � Panel Administratora
+
+Panel dostępny jest pod adresem `/admin.php`. Oferuje następujące możliwości:
+
+1.  **Dashboard**: Przegląd statystyk zużycia miejsca i aktywności użytkowników.
+2.  **Lista Wklejek**: Pełna lista aktywnych wpisów z możliwością filtrowania i sortowania.
+3.  **Moderacja**: Funkcja trwałego usuwania treści naruszających regulamin.
+4.  **Bezpieczeństwo**: Panel chroniony jest niezależnym hasłem zdefiniowanym w konfiguracji.
 
 ---
 
 ## 📄 Licencja
 
-Projekt udostępniany na licencji MIT - możesz go dowolnie modyfikować i rozpowszechniać, zachowując informację o autorach.
+Projekt dystrybuowany jest na licencji [MIT](LICENSE). Zachęcam do forkowania i współtworzenia projektu.
