@@ -68,7 +68,7 @@ Poniżej znajdują się zrzuty ekranu prezentujące kluczowe elementy interfejsu
 
 ### 6. Panel Administratora
 > *Centrum zarządzania systemem i wklejkami.*
-![Admin Panel](screenshots/admin_panel.png)
+![Admin Panel](screenshots/admin_view.png)
 
 ---
 
